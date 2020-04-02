@@ -2,6 +2,15 @@
 
 Python version of Tank Battalion.
 
+
+## Notes
+
+Install pygame
+
+```
+sudo pip install pygame
+```
+
 ## Sprites
 
 ![](GameTankBattalionArena.png)
