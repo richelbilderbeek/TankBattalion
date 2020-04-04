@@ -11,7 +11,7 @@ white = (255,255,255)
 
 # , pygame.FULLSCREEN
 game_display = pygame.display.set_mode(
-    (display_width,display_height))
+    (display_width,display_height), pygame.FULLSCREEN)
 pygame.display.set_caption('Tank Battalion')
 
 clock = pygame.time.Clock()
