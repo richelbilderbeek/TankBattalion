@@ -41,7 +41,7 @@ while not crashed:
                 x_change = 0
 
     x += x_change
-    game_display.fill(white)
+    game_display.fill(black)
     draw_player(x,y)
 
     pygame.display.update()
