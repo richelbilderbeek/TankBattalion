@@ -9,16 +9,16 @@ display_height = 600
 black = (0,0,0)
 white = (255,255,255)
 
-gameDisplay = pygame.display.set_mode(
+game_display = pygame.display.set_mode(
     (display_width,display_height))
 pygame.display.set_caption('Tank Battalion')
 
 clock = pygame.time.Clock()
 crashed = False
-carImg = pygame.image.load('sprites/PlayerUp.png')
+player_image = pygame.image.load('sprites/PlayerUp.png')
 
-def car(x,y):
-    gameDisplay.blit(carImg, (x,y))
+def draw_player(x,y):
+    game_display.blit(player_image, (x,y))
 
 x = (display_width  * 0.45)
 y = (display_height * 0.80)
@@ -29,8 +29,8 @@ while not crashed:
         if event.type == pygame.QUIT:
             crashed = True
 
-    gameDisplay.fill(white)
-    car(x,y)
+    game_display.fill(white)
+    draw_player(x,y)
 
     pygame.display.update()
     clock.tick(60)
