@@ -25,7 +25,7 @@ def draw_player(x,y):
 x = (display_width  * 0.45)
 y = (display_height * 0.80)
 x_change = 0
-car_speed = 0
+y_change = 0
 
 while not crashed:
 
@@ -43,11 +43,18 @@ while not crashed:
                 x_change = -5
             elif event.key == pygame.K_RIGHT:
                 x_change = 5
+            elif event.key == pygame.K_UP:
+                y_change = -5
+            elif event.key == pygame.K_DOWN:
+                y_change = 5
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                 x_change = 0
+            if event.key == pygame.K_UP or event.key == pygame.K_DOWN:
+                y_change = 0
 
     x += x_change
+    y += y_change
     game_display.blit(background_image, (0,0))
     draw_player(x,y)
 
