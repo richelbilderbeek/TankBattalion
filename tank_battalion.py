@@ -3,12 +3,13 @@ import pygame
 
 pygame.init()
 
-display_width = 800
-display_height = 600
+display_width = 256
+display_height = 192
 
 black = (0,0,0)
 white = (255,255,255)
 
+# , pygame.FULLSCREEN
 game_display = pygame.display.set_mode(
     (display_width,display_height))
 pygame.display.set_caption('Tank Battalion')
