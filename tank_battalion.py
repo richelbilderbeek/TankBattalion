@@ -32,6 +32,12 @@ while not crashed:
         if event.type == pygame.QUIT:
             crashed = True
         if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                crashed = True
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_BACKSPACE:
+                crashed = True
+        if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
                 x_change = -5
             elif event.key == pygame.K_RIGHT:
