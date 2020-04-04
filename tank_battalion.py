@@ -1,10 +1,12 @@
+# From https://pythonprogramming.net/pygame-python-3-part-1-intro
 import pygame
 
 pygame.init()
 
 
-gameDisplay = pygame.display.set_mode((800,600))
-pygame.display.set_caption('A bit Racey')
+# Do not add 'pygame.FULLSCREEN', this will change the resolution
+gameDisplay = pygame.display.set_mode((256,192))
+pygame.display.set_caption('Tank Battalion')
 
 clock = pygame.time.Clock()
 
