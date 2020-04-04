@@ -17,7 +17,7 @@ pygame.mouse.set_visible(False)
 clock = pygame.time.Clock()
 crashed = False
 player_image = pygame.image.load('sprites/PlayerUp.png')
-background_image = pygame.image.load('sprites/Original.png')
+background_image = pygame.image.load('sprites/Background.png')
 
 def draw_player(x,y):
     game_display.blit(player_image, (x,y))
