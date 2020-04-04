@@ -9,7 +9,6 @@ display_height = 192
 black = (0,0,0)
 white = (255,255,255)
 
-# , pygame.FULLSCREEN
 game_display = pygame.display.set_mode(
     (display_width,display_height), pygame.FULLSCREEN)
 pygame.display.set_caption('Tank Battalion')
@@ -17,6 +16,7 @@ pygame.display.set_caption('Tank Battalion')
 clock = pygame.time.Clock()
 crashed = False
 player_image = pygame.image.load('sprites/PlayerUp.png')
+background_image = pygame.image.load('sprites/Original.png')
 
 def draw_player(x,y):
     game_display.blit(player_image, (x,y))
@@ -47,7 +47,7 @@ while not crashed:
                 x_change = 0
 
     x += x_change
-    game_display.fill(black)
+    game_display.blit(background_image, (0,0))
     draw_player(x,y)
 
     pygame.display.update()
