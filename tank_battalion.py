@@ -15,7 +15,7 @@ pygame.display.set_caption('Tank Battalion')
 
 clock = pygame.time.Clock()
 crashed = False
-carImg = pygame.image.load('PlayerUp.png')
+carImg = pygame.image.load('sprites/PlayerUp.png')
 
 def car(x,y):
     gameDisplay.blit(carImg, (x,y))
