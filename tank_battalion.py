@@ -22,7 +22,7 @@ clock = pygame.time.Clock()
 crashed = False
 player_image = pygame.image.load('sprites/PlayerUp.png')
 background_image = pygame.image.load('sprites/Background.png')
-player = Player()
+player = Player(100, 100)
 
 while not crashed:
 
@@ -36,24 +36,28 @@ while not crashed:
             if event.key == pygame.K_BACKSPACE:
                 crashed = True
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_LEFT:
-                x_change = -5
+            if event.key == pygame.K_UP:
+                player.add_key(Key.UP)
             elif event.key == pygame.K_RIGHT:
-                x_change = 5
-            elif event.key == pygame.K_UP:
-                y_change = -5
+                player.add_key(Key.RIGHT)
             elif event.key == pygame.K_DOWN:
-                y_change = 5
+                player.add_key(Key.DOWN)
+            elif event.key == pygame.K_LEFT:
+                player.add_key(Key.LEFT)
         if event.type == pygame.KEYUP:
-            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
-                x_change = 0
-            if event.key == pygame.K_UP or event.key == pygame.K_DOWN:
-                y_change = 0
+            if event.key == pygame.K_UP:
+                player.remove_key(Key.UP)
+            elif event.key == pygame.K_RIGHT:
+                player.remove_key(Key.RIGHT)
+            elif event.key == pygame.K_DOWN:
+                player.remove_key(Key.DOWN)
+            elif event.key == pygame.K_LEFT:
+                player.remove_key(Key.LEFT)
 
-    x += x_change
-    y += y_change
+    player.respond_to_keys()
+    player.move()
     game_display.blit(background_image, (0,0))
-    game_display.blit(player_image, (x,y))
+    game_display.blit(player_image, (player.get_x(),player.get_y()))
 
     pygame.display.update()
     clock.tick(60)

@@ -50,6 +50,17 @@ class Player:
     def get_y(self):
         return self.y
 
+    # Move to player by its speed
+    # The game logic will have to stop the tank from running into walls
+    def move(self):
+        self.x += self.dx
+        self.y += self.dy
+
+    # Remove a key to the set of keys that are active
+    def remove_key(self, key):
+        # Remove oppsitite key
+        self.keys_pressed.remove(key)
+
     # Respond to the keys pressed
     # Will make the tank turn and change speed
     # The game logic will have to stop the tank from running into walls
