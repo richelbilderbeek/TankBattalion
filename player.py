@@ -78,10 +78,15 @@ class Player:
             elif self.direction == Direction.UP:
                 self.dy = -1
         if Key.RIGHT in self.keys_pressed:
-            # If not facing right, turn right
-            if not self.direction == Direction.RIGHT:
+            # Brake
+            if self.direction == Direction.LEFT and self.dx == -1:
+                self.dx = 0
+                #self.keys_pressed.remove(Key.LEFT) # Already deleted
+            # Turn
+            elif not self.direction == Direction.RIGHT:
                 self.direction = Direction.RIGHT
                 self.keys_pressed.remove(Key.RIGHT)
+            # Start driving
             elif self.direction == Direction.RIGHT:
                 self.dx = 1
         if Key.DOWN in self.keys_pressed:
@@ -92,10 +97,15 @@ class Player:
             elif self.direction == Direction.DOWN:
                 self.dy = 1
         if Key.LEFT in self.keys_pressed:
-            # If not facing left, turn left
-            if not self.direction == Direction.LEFT:
+            # Brake
+            if self.direction == Direction.RIGHT and self.dx == 1:
+                self.dx = 0
+                self.keys_pressed.remove(Key.LEFT)
+            # Turn
+            elif not self.direction == Direction.LEFT:
                 self.direction = Direction.LEFT
                 self.keys_pressed.remove(Key.LEFT)
+            # Start driving
             elif self.direction == Direction.LEFT:
                 self.dx = -1
 
