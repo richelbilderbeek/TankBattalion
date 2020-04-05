@@ -81,7 +81,7 @@ class Player:
             # Brake
             if self.direction == Direction.LEFT and self.dx == -1:
                 self.dx = 0
-                #self.keys_pressed.remove(Key.LEFT) # Already deleted
+                self.keys_pressed.remove(Key.RIGHT)
             # Turn
             elif not self.direction == Direction.RIGHT:
                 self.direction = Direction.RIGHT
