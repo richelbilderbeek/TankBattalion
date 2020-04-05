@@ -17,6 +17,7 @@ pygame.display.set_caption('Tank Battalion')
 pygame.mouse.set_visible(False)
 
 clock = pygame.time.Clock()
+show_coordinats = False
 
 player_up_image = pygame.image.load('sprites/PlayerUp.png')
 player_right_image = pygame.image.load('sprites/PlayerRight.png')
@@ -74,10 +75,11 @@ while not game.get_quit():
         (game.get_player().get_x(),game.get_player().get_y()))
 
 
-    text_x = myfont.render(str(game.get_player().get_x()), False, (255, 255, 255))
-    text_y = myfont.render(str(game.get_player().get_y()), False, (255, 255, 255))
-    game_display.blit(text_x, (0,  0))
-    game_display.blit(text_y, (0, 20))
+    if show_coordinats:
+        text_x = myfont.render(str(game.get_player().get_x()), False, (255, 255, 255))
+        text_y = myfont.render(str(game.get_player().get_y()), False, (255, 255, 255))
+        game_display.blit(text_x, (0,  0))
+        game_display.blit(text_y, (0, 20))
 
     pygame.display.update()
     clock.tick(60)
