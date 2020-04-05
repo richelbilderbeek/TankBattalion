@@ -18,6 +18,10 @@ class Game:
     def get_keys_pressed(self):
         return self.player.get_keys_pressed()
 
+    # Minimum valid Y coordinat
+    def get_miny(self):
+        return self.miny
+
     def get_player(self):
         return self.player
 
@@ -38,11 +42,16 @@ class Game:
     # Process all events of the game
     def tick(self):
         self.player.respond_to_keys()
+
+        if self.player.get_y() + self.player.get_dy() < self.get_miny():
+            self.player.stop()
+
         self.player.move()
 
 
     height = 192
     player = Player()
+    miny = 7 # Minimum valid Y coordinat
     quit = False
     width = 256
 

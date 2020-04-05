@@ -7,6 +7,7 @@ from key import Key
 
 
 pygame.init()
+pygame.font.init()
 
 game = Game()
 
@@ -21,6 +22,8 @@ player_up_image = pygame.image.load('sprites/PlayerUp.png')
 player_right_image = pygame.image.load('sprites/PlayerRight.png')
 player_down_image = pygame.image.load('sprites/PlayerDown.png')
 player_left_image = pygame.image.load('sprites/PlayerLeft.png')
+
+myfont = pygame.font.SysFont('Comic Sans MS', 16)
 
 def get_player_image(direction):
     if direction == Direction.UP:
@@ -69,6 +72,12 @@ while not game.get_quit():
     game_display.blit(
         get_player_image(game.get_player().get_direction()), 
         (game.get_player().get_x(),game.get_player().get_y()))
+
+
+    text_x = myfont.render(str(game.get_player().get_x()), False, (255, 255, 255))
+    text_y = myfont.render(str(game.get_player().get_y()), False, (255, 255, 255))
+    game_display.blit(text_x, (0,  0))
+    game_display.blit(text_y, (0, 20))
 
     pygame.display.update()
     clock.tick(60)
