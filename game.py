@@ -4,7 +4,7 @@ from player import *
 # Game logic
 class Game:
 
-    def __init__(self, player = Player()):
+    def __init__(self, player = Player(100, 100)):
         self.height = 192
         self.player = player
         self.width = 256

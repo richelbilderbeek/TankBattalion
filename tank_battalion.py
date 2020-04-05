@@ -10,16 +10,12 @@ pygame.init()
 
 game = Game()
 
-black = (0,0,0)
-white = (255,255,255)
-
 game_display = pygame.display.set_mode(
     (game.get_width(),game.get_height()), pygame.FULLSCREEN)
 pygame.display.set_caption('Tank Battalion')
 pygame.mouse.set_visible(False)
 
 clock = pygame.time.Clock()
-crashed = False
 
 player_up_image = pygame.image.load('sprites/PlayerUp.png')
 player_right_image = pygame.image.load('sprites/PlayerRight.png')
@@ -37,8 +33,6 @@ def get_player_image(direction):
         return player_left_image
 
 background_image = pygame.image.load('sprites/Background.png')
-player = Player(100, 100)
-
 
 while not game.get_quit():
 
