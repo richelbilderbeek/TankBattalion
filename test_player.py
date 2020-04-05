@@ -1,6 +1,7 @@
 import unittest
 from player import Player
 from direction import Direction
+from key import Key
 
 # Tests the Player class
 class TestPlayer(unittest.TestCase):
@@ -24,4 +25,9 @@ class TestPlayer(unittest.TestCase):
         player = Player()
         self.assertEqual(0, len(player.get_keys_pressed()))
         
+    def test_add_key(self):
+        player = Player()
+        self.assertEqual(0, len(player.get_keys_pressed()))
+        player.add_key(Key.DOWN)
+        self.assertTrue(Key.DOWN in player.get_keys_pressed())
 

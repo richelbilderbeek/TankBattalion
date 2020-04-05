@@ -1,12 +1,18 @@
 #!/usr/bin/env python3
 from direction import Direction
+from key import Key
 
 # Player logic
 class Player:
     def __init__(self, x = 0, y = 0, direction = Direction.UP):
+        self.direction = direction
+        self.keys_pressed = set()
         self.x = x
         self.y = y
-        self.direction = direction
+
+    # Add a key to the set of keys that are active
+    def add_key(self, key):
+        self.keys_pressed.add(key)
 
     # Simple getters
     def get_direction(self):
@@ -26,11 +32,11 @@ class Player:
 
     # Private things
     # Player logic
-    x = None
-    y = None
-    direction = None
+    direction = Direction.UP
+    keys_pressed = set()
+    x = 0
+    y = 0
     x_change = 0
     y_change = 0
-    keys_pressed = set()
 
 
