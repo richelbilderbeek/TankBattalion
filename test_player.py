@@ -35,14 +35,33 @@ class TestPlayer(unittest.TestCase):
         player.add_key(Key.DOWN)
         self.assertTrue(Key.DOWN in player.get_keys_pressed())
 
-    # A player can go down and left
-    def test_add_opposite_key(self):
+    def test_add_opposite_key_up_removes_down(self):
         player = Player()
-        self.assertEqual(0, len(player.get_keys_pressed()))
         player.add_key(Key.DOWN)
         self.assertTrue(Key.DOWN in player.get_keys_pressed())
         player.add_key(Key.UP)
         self.assertFalse(Key.DOWN in player.get_keys_pressed())
+
+    def test_add_opposite_key_right_removes_left(self):
+        player = Player()
+        player.add_key(Key.LEFT)
+        self.assertTrue(Key.LEFT in player.get_keys_pressed())
+        player.add_key(Key.RIGHT)
+        self.assertFalse(Key.LEFT in player.get_keys_pressed())
+
+    def test_add_opposite_key_down_removes_up(self):
+        player = Player()
+        player.add_key(Key.UP)
+        self.assertTrue(Key.UP in player.get_keys_pressed())
+        player.add_key(Key.DOWN)
+        self.assertFalse(Key.UP in player.get_keys_pressed())
+
+    def test_add_opposite_key_left_removes_right(self):
+        player = Player()
+        player.add_key(Key.RIGHT)
+        self.assertTrue(Key.RIGHT in player.get_keys_pressed())
+        player.add_key(Key.LEFT)
+        self.assertFalse(Key.RIGHT in player.get_keys_pressed())
 
     def test_add_second_key(self):
         player = Player()

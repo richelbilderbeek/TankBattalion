@@ -17,6 +17,12 @@ class Player:
         # Remove oppsitite key
         if (key == Key.UP and Key.DOWN in self.keys_pressed):
             self.keys_pressed.remove(Key.DOWN)
+        if (key == Key.RIGHT and Key.LEFT in self.keys_pressed):
+            self.keys_pressed.remove(Key.LEFT)
+        if (key == Key.DOWN and Key.UP in self.keys_pressed):
+            self.keys_pressed.remove(Key.UP)
+        if (key == Key.LEFT and Key.RIGHT in self.keys_pressed):
+            self.keys_pressed.remove(Key.RIGHT)
 
         self.keys_pressed.add(key)
 
