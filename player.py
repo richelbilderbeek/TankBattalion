@@ -79,7 +79,7 @@ class Player:
                 self.dy = -1
         if Key.RIGHT in self.keys_pressed:
             # Brake
-            if self.direction == Direction.LEFT and self.dx == -1:
+            if is_driving_up(self) or is_driving_down(self) or is_driving_left(self):
                 self.stop()
             # Turn
             elif not self.direction == Direction.RIGHT:
@@ -90,7 +90,7 @@ class Player:
                 self.dx = 1
         if Key.DOWN in self.keys_pressed:
             # Brake
-            if self.direction == Direction.UP and self.dy == -1:
+            if is_driving_up(self) or is_driving_right(self) or is_driving_left(self):
                 self.stop()
             # Turn
             elif not self.direction == Direction.DOWN:
@@ -101,7 +101,7 @@ class Player:
                 self.dy = 1
         if Key.LEFT in self.keys_pressed:
             # Brake
-            if self.direction == Direction.RIGHT and self.dx == 1:
+            if is_driving_up(self) or is_driving_right(self) or is_driving_down(self):
                 self.stop()
             # Turn
             elif not self.direction == Direction.LEFT:
