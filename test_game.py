@@ -10,3 +10,9 @@ class TestGame(unittest.TestCase):
         game = Game()
         self.assertEqual(0, game.get_player().get_dx())
 
+    def test_default_construction(self):
+        game = Game()
+        self.assertFalse(game.get_quit())
+        game.set_quit(True)
+        self.assertTrue(game.get_quit())
+
