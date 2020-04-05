@@ -34,12 +34,33 @@ class TestPlayer(unittest.TestCase):
         player.add_key(Key.DOWN)
         self.assertTrue(Key.DOWN in player.get_keys_pressed())
 
+    def test_turn_up(self):
+        player = Player(0, 0, Direction.DOWN)
+        player.add_key(Key.UP)
+        self.assertEqual(Direction.DOWN, player.get_direction())
+        player.respond_to_keys()
+        self.assertEqual(Direction.UP, player.get_direction())
+
+    def test_turn_right(self):
+        player = Player(0, 0, Direction.LEFT)
+        player.add_key(Key.RIGHT)
+        self.assertEqual(Direction.LEFT, player.get_direction())
+        player.respond_to_keys()
+        self.assertEqual(Direction.RIGHT, player.get_direction())
+
     def test_turn_down(self):
         player = Player()
         player.add_key(Key.DOWN)
         self.assertEqual(Direction.UP, player.get_direction())
         player.respond_to_keys()
         self.assertEqual(Direction.DOWN, player.get_direction())
+
+    def test_turn_left(self):
+        player = Player(0, 0, Direction.RIGHT)
+        player.add_key(Key.LEFT)
+        self.assertEqual(Direction.RIGHT, player.get_direction())
+        player.respond_to_keys()
+        self.assertEqual(Direction.LEFT, player.get_direction())
 
     def test_turn_and_go_down(self):
         player = Player()
@@ -49,12 +70,6 @@ class TestPlayer(unittest.TestCase):
         player.respond_to_keys()
         self.assertEqual(1, player.get_dy())
 
-    def test_turn_up(self):
-        player = Player(0, 0, Direction.DOWN)
-        player.add_key(Key.UP)
-        self.assertEqual(Direction.DOWN, player.get_direction())
-        player.respond_to_keys()
-        self.assertEqual(Direction.UP, player.get_direction())
 
     def test_turn_and_go_up(self):
         player = Player(0, 0, Direction.DOWN)

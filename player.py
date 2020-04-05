@@ -45,15 +45,29 @@ class Player:
     # The game logic will have to stop the tank from running into walls
     def respond_to_keys(self):
         if Key.UP in self.keys_pressed:
-            if self.direction == Direction.DOWN:
+            # If not facing up, turn up
+            if not self.direction == Direction.UP:
                 self.direction = Direction.UP
             elif self.direction == Direction.UP:
                 self.dy = -1
+        if Key.RIGHT in self.keys_pressed:
+            # If not facing right, turn right
+            if not self.direction == Direction.RIGHT:
+                self.direction = Direction.RIGHT
+            elif self.direction == Direction.RIGHT:
+                self.dx = 1
         if Key.DOWN in self.keys_pressed:
-            if self.direction == Direction.UP:
+            # If not facing down, turn down
+            if not self.direction == Direction.DOWN:
                 self.direction = Direction.DOWN
             elif self.direction == Direction.DOWN:
                 self.dy = 1
+        if Key.LEFT in self.keys_pressed:
+            # If not facing left, turn left
+            if not self.direction == Direction.LEFT:
+                self.direction = Direction.LEFT
+            elif self.direction == Direction.LEFT:
+                self.dx = -1
 
     # Private things
     # Player logic
