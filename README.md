@@ -11,6 +11,15 @@ Install pygame
 sudo pip install pygame
 ```
 
+## Screenshots
+
+Most recent at the top.
+
+Because the game originally has a low resolution (256 x 196), these
+screenshots do so as well. 
+
+![](pics/20200405.png)
+
 ## Sprites
 
 ![](sprites/Arena.png)
