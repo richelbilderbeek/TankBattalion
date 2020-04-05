@@ -5,3 +5,4 @@ class Key(Enum):
     RIGHT = auto()
     DOWN = auto()
     LEFT = auto()
+    SHOOT = auto()

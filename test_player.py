@@ -292,3 +292,15 @@ class TestPlayer(unittest.TestCase):
         self.assertEqual(Direction.RIGHT, player.get_direction())
         self.assertEqual(0, player.get_dx())
 
+    def test_player_shoots(self):
+        player = Player()
+        self.assertEqual(False, player.is_shooting())
+        player.shoot()
+        self.assertEqual(True, player.is_shooting())
+
+    def test_player_shoots_trice_is_fine(self):
+        player = Player()
+        player.shoot()
+        player.shoot()
+        player.shoot()
+

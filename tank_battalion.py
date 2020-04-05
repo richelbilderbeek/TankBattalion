@@ -23,6 +23,7 @@ player_up_image = pygame.image.load('sprites/PlayerUp.png')
 player_right_image = pygame.image.load('sprites/PlayerRight.png')
 player_down_image = pygame.image.load('sprites/PlayerDown.png')
 player_left_image = pygame.image.load('sprites/PlayerLeft.png')
+shell_image = pygame.image.load('sprites/Shell.png')
 
 myfont = pygame.font.SysFont('Comic Sans MS', 16)
 
@@ -58,6 +59,8 @@ while not game.get_quit():
                 game.add_key(Key.DOWN)
             elif event.key == pygame.K_LEFT:
                 game.add_key(Key.LEFT)
+            elif event.key == pygame.K_SPACE:
+                game.add_key(Key.SHOOT)
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_UP:
                 game.remove_key(Key.UP)
@@ -73,6 +76,11 @@ while not game.get_quit():
     game_display.blit(
         get_player_image(game.get_player().get_direction()), 
         (game.get_player().get_x(),game.get_player().get_y()))
+
+    if game.get_player().is_shooting():
+        game_display.blit(
+            shell_image, 
+            (game.get_player().get_shell().get_x(),game.get_player().get_shell().get_y()))
 
 
     if show_coordinats:

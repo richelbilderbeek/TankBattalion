@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from direction import Direction
 from key import Key
+from shell import Shell
 import math
 
 # Player logic
@@ -44,6 +45,9 @@ class Player:
     # right only, as pressing right also removes going left
     def get_keys_pressed(self):
         return self.keys_pressed
+
+    def get_shell(self):
+        return self.shell
 
     def get_x(self):
         return self.x
@@ -114,6 +118,15 @@ class Player:
             # Start driving
             elif self.direction == Direction.LEFT:
                 self.dx = -1
+        if Key.SHOOT in self.keys_pressed:
+            self.keys_pressed.remove(Key.SHOOT)
+            self.shoot()
+
+    # Create a shell, does nothing if the player is already shooting
+    def shoot(self):
+        if self.is_shooting(): return
+        self.shell = Shell(self.x, self.y, self.direction)
+        
 
     # Makes the player stop and remove all keys
     def stop(self):
