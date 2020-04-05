@@ -66,10 +66,15 @@ class Player:
     # The game logic will have to stop the tank from running into walls
     def respond_to_keys(self):
         if Key.UP in self.keys_pressed:
-            # If not facing up, turn up
-            if not self.direction == Direction.UP:
+            # Brake
+            if self.direction == Direction.DOWN and self.dy == 1:
+                self.dy = 0
+                self.keys_pressed.remove(Key.UP)
+            # Turn
+            elif not self.direction == Direction.UP:
                 self.direction = Direction.UP
                 self.keys_pressed.remove(Key.UP)
+            # Start driving
             elif self.direction == Direction.UP:
                 self.dy = -1
         if Key.RIGHT in self.keys_pressed:

@@ -172,3 +172,16 @@ class TestPlayer(unittest.TestCase):
         self.assertEqual(-1, player.get_x())
         self.assertEqual(0, player.get_y())
 
+    # If pressing up makes the player turn while driving down
+    # the user must stop and not change direction yet
+    def test_turn_around_stops(self):
+        player = Player(direction = Direction.DOWN)
+        player.add_key(Key.DOWN)
+        player.respond_to_keys()
+        self.assertEqual(Direction.DOWN, player.get_direction()) # look down
+        self.assertEqual(1, player.get_dy()) # Go down
+        player.add_key(Key.UP)
+        player.respond_to_keys()
+        self.assertEqual(0, player.get_dy()) # brake
+        self.assertEqual(Direction.DOWN, player.get_direction()) # still look down
+
