@@ -68,9 +68,7 @@ class Player:
     def respond_to_keys(self):
         if Key.UP in self.keys_pressed:
             # Brake
-            if self.direction == Direction.DOWN and self.dy == 1:
-                self.stop()
-            elif self.direction == Direction.RIGHT and self.dx == 1:
+            if is_driving_right(self) or is_driving_down(self) or is_driving_left(self):
                 self.stop()
             # Turn
             elif not self.direction == Direction.UP:
