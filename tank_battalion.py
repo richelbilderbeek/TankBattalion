@@ -20,7 +20,22 @@ pygame.mouse.set_visible(False)
 
 clock = pygame.time.Clock()
 crashed = False
-player_image = pygame.image.load('sprites/PlayerUp.png')
+
+player_up_image = pygame.image.load('sprites/PlayerUp.png')
+player_right_image = pygame.image.load('sprites/PlayerRight.png')
+player_down_image = pygame.image.load('sprites/PlayerDown.png')
+player_left_image = pygame.image.load('sprites/PlayerLeft.png')
+
+def get_player_image(direction):
+    if direction == Direction.UP:
+        return player_up_image
+    elif direction == Direction.RIGHT:
+        return player_right_image
+    elif direction == Direction.DOWN:
+        return player_down_image
+    else:
+        return player_left_image
+
 background_image = pygame.image.load('sprites/Background.png')
 player = Player(100, 100)
 
@@ -57,7 +72,9 @@ while not crashed:
     player.respond_to_keys()
     player.move()
     game_display.blit(background_image, (0,0))
-    game_display.blit(player_image, (player.get_x(),player.get_y()))
+    game_display.blit(
+        get_player_image(player.get_direction()), 
+        (player.get_x(),player.get_y()))
 
     pygame.display.update()
     clock.tick(60)

@@ -82,6 +82,10 @@ class TestPlayer(unittest.TestCase):
         player.remove_key(Key.DOWN)
         self.assertEqual(0, len(player.get_keys_pressed()))
 
+    def test_remove_absent_key_is_ignored(self):
+        player = Player()
+        player.remove_key(Key.DOWN)
+
     def test_turn_up(self):
         player = Player(0, 0, Direction.DOWN)
         player.add_key(Key.UP)

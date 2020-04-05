@@ -58,8 +58,8 @@ class Player:
 
     # Remove a key to the set of keys that are active
     def remove_key(self, key):
-        # Remove oppsitite key
-        self.keys_pressed.remove(key)
+        if key in self.keys_pressed:
+            self.keys_pressed.remove(key)
 
     # Respond to the keys pressed
     # Will make the tank turn and change speed
