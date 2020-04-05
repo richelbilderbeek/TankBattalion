@@ -8,9 +8,12 @@ class TestPlayer(unittest.TestCase):
 
     def test_default_construction(self):
         player = Player()
+        self.assertEqual(Direction.UP, player.get_direction())
+        self.assertEqual(0, player.get_dx())
+        self.assertEqual(0, player.get_dy())
+        self.assertEqual(0, len(player.get_keys_pressed()))
         self.assertEqual(0, player.get_x())
         self.assertEqual(0, player.get_y())
-        self.assertEqual(Direction.UP, player.get_direction())
 
     def test_construction(self):
         x = 123
@@ -37,4 +40,12 @@ class TestPlayer(unittest.TestCase):
         self.assertEqual(Direction.UP, player.get_direction())
         player.respond_to_keys()
         self.assertEqual(Direction.DOWN, player.get_direction())
+
+    def test_turn_and_go_down(self):
+        player = Player()
+        player.add_key(Key.DOWN)
+        player.respond_to_keys() # Only turn
+        self.assertEqual(0, player.get_dy())
+        player.respond_to_keys()
+        self.assertEqual(1, player.get_dy())
 
