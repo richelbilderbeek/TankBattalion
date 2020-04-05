@@ -128,3 +128,9 @@ class Player:
     y = 0
 
 
+def is_driving(player):
+    return not player.get_dx() == 0 or not player.get_dy() == 0
+
+def is_stopped(player):
+    return player.get_dx() == 0 and player.get_dy() == 0
+

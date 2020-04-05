@@ -1,5 +1,5 @@
 import unittest
-from player import Player
+from player import *
 from direction import Direction
 from key import Key
 
@@ -14,6 +14,8 @@ class TestPlayer(unittest.TestCase):
         self.assertEqual(0, len(player.get_keys_pressed()))
         self.assertEqual(0, player.get_x())
         self.assertEqual(0, player.get_y())
+        self.assertFalse(is_driving(player))
+        self.assertTrue(is_stopped(player))
 
     def test_construction(self):
         x = 123
