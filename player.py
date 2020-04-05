@@ -127,6 +127,10 @@ class Player:
     y = 0
 
 
+# Free functions
+def get_keys_pressed(player: Player):
+    return player.get_keys_pressed()
+
 def is_driving(player):
     return not math.isclose(player.get_dx(), 0.0) or not math.isclose(player.get_dy(), 0.0)
 

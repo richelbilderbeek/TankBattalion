@@ -12,6 +12,7 @@ class TestPlayer(unittest.TestCase):
         self.assertEqual(0, player.get_dx())
         self.assertEqual(0, player.get_dy())
         self.assertEqual(0, len(player.get_keys_pressed()))
+        self.assertEqual(0, len(get_keys_pressed(player)))
         self.assertEqual(0, player.get_x())
         self.assertEqual(0, player.get_y())
         self.assertFalse(is_driving(player))

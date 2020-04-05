@@ -9,6 +9,7 @@ class TestGame(unittest.TestCase):
     def test_default_construction(self):
         game = Game()
         self.assertEqual(0, game.get_player().get_dx())
+        self.assertEqual(0, len(get_keys_pressed(game)))
 
     def test_default_construction(self):
         game = Game()

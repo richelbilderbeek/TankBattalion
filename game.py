@@ -33,3 +33,7 @@ class Game:
     quit = False
     width = 256
 
+# Free functions
+def get_keys_pressed(game: Game):
+    return get_keys_pressed(game.get_player())
+
