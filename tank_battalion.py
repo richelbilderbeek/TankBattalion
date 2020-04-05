@@ -22,6 +22,7 @@ clock = pygame.time.Clock()
 crashed = False
 player_image = pygame.image.load('sprites/PlayerUp.png')
 background_image = pygame.image.load('sprites/Background.png')
+player = Player()
 
 while not crashed:
 
