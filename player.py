@@ -15,7 +15,7 @@ class Player:
 
     # Add a key to the set of keys that are active
     def add_key(self, key):
-        # Remove oppsitite key
+        # Remove opposite key
         if (key == Key.UP and Key.DOWN in self.keys_pressed):
             self.keys_pressed.remove(Key.DOWN)
         if (key == Key.RIGHT and Key.LEFT in self.keys_pressed):
@@ -50,6 +50,10 @@ class Player:
 
     def get_y(self):
         return self.y
+
+    # Is there a shell flying around
+    def is_shooting(self):
+        return self.shell is not None
 
     # Move to player by its speed
     # The game logic will have to stop the tank from running into walls
@@ -123,6 +127,7 @@ class Player:
     dx = 0
     dy = 0
     keys_pressed = set()
+    shell = None
     x = 0
     y = 0
 

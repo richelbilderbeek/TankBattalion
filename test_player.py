@@ -15,6 +15,7 @@ class TestPlayer(unittest.TestCase):
         self.assertEqual(0, len(get_keys_pressed(player)))
         self.assertEqual(0, player.get_x())
         self.assertEqual(0, player.get_y())
+        self.assertEqual(False, player.is_shooting())
         self.assertFalse(is_driving(player))
         self.assertTrue(is_stopped(player))
 
