@@ -20,3 +20,8 @@ class TestPlayer(unittest.TestCase):
         self.assertEqual(y, player.get_y())
         self.assertEqual(direction, player.get_direction())
 
+    def test_no_keys_pressed_at_start(self):
+        player = Player()
+        self.assertEqual(0, len(player.get_keys_pressed()))
+        
+
