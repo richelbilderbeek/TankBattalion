@@ -69,24 +69,28 @@ class Player:
             # If not facing up, turn up
             if not self.direction == Direction.UP:
                 self.direction = Direction.UP
+                self.keys_pressed.remove(Key.UP)
             elif self.direction == Direction.UP:
                 self.dy = -1
         if Key.RIGHT in self.keys_pressed:
             # If not facing right, turn right
             if not self.direction == Direction.RIGHT:
                 self.direction = Direction.RIGHT
+                self.keys_pressed.remove(Key.RIGHT)
             elif self.direction == Direction.RIGHT:
                 self.dx = 1
         if Key.DOWN in self.keys_pressed:
             # If not facing down, turn down
             if not self.direction == Direction.DOWN:
                 self.direction = Direction.DOWN
+                self.keys_pressed.remove(Key.DOWN)
             elif self.direction == Direction.DOWN:
                 self.dy = 1
         if Key.LEFT in self.keys_pressed:
             # If not facing left, turn left
             if not self.direction == Direction.LEFT:
                 self.direction = Direction.LEFT
+                self.keys_pressed.remove(Key.LEFT)
             elif self.direction == Direction.LEFT:
                 self.dx = -1
 

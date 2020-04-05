@@ -93,6 +93,16 @@ class TestPlayer(unittest.TestCase):
         player.respond_to_keys()
         self.assertEqual(Direction.UP, player.get_direction())
 
+    # If pressing up makes the player turn, 
+    # the user must press up again to actually go up
+    def test_turn_up_loses_key(self):
+        player = Player(0, 0, Direction.DOWN)
+        player.add_key(Key.UP)
+        self.assertEqual(1, len(player.get_keys_pressed()))
+        player.respond_to_keys()
+        self.assertEqual(Direction.UP, player.get_direction())
+        self.assertEqual(0, len(player.get_keys_pressed()))
+
     def test_turn_right(self):
         player = Player(0, 0, Direction.LEFT)
         player.add_key(Key.RIGHT)
@@ -119,6 +129,7 @@ class TestPlayer(unittest.TestCase):
         player.add_key(Key.UP)
         player.respond_to_keys() # Only turn
         self.assertEqual(0, player.get_dy())
+        player.add_key(Key.UP)
         player.respond_to_keys()
         self.assertEqual(-1, player.get_dy())
 
@@ -127,6 +138,7 @@ class TestPlayer(unittest.TestCase):
         player.add_key(Key.RIGHT)
         player.respond_to_keys() # Only turn
         self.assertEqual(0, player.get_dx())
+        player.add_key(Key.RIGHT)
         player.respond_to_keys()
         self.assertEqual(1, player.get_dx())
 
@@ -135,6 +147,7 @@ class TestPlayer(unittest.TestCase):
         player.add_key(Key.DOWN)
         player.respond_to_keys() # Only turn
         self.assertEqual(0, player.get_dy())
+        player.add_key(Key.DOWN)
         player.respond_to_keys()
         self.assertEqual(1, player.get_dy())
 
@@ -143,6 +156,7 @@ class TestPlayer(unittest.TestCase):
         player.add_key(Key.LEFT)
         player.respond_to_keys() # Only turn
         self.assertEqual(0, player.get_dx())
+        player.add_key(Key.LEFT)
         player.respond_to_keys()
         self.assertEqual(-1, player.get_dx())
 
