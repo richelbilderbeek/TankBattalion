@@ -68,8 +68,9 @@ class Player:
         if Key.UP in self.keys_pressed:
             # Brake
             if self.direction == Direction.DOWN and self.dy == 1:
-                self.dy = 0
-                self.keys_pressed.remove(Key.UP)
+                self.stop()
+            elif self.direction == Direction.RIGHT and self.dx == 1:
+                self.stop()
             # Turn
             elif not self.direction == Direction.UP:
                 self.direction = Direction.UP
@@ -80,8 +81,7 @@ class Player:
         if Key.RIGHT in self.keys_pressed:
             # Brake
             if self.direction == Direction.LEFT and self.dx == -1:
-                self.dx = 0
-                self.keys_pressed.remove(Key.RIGHT)
+                self.stop()
             # Turn
             elif not self.direction == Direction.RIGHT:
                 self.direction = Direction.RIGHT
@@ -92,8 +92,7 @@ class Player:
         if Key.DOWN in self.keys_pressed:
             # Brake
             if self.direction == Direction.UP and self.dy == -1:
-                self.dy = 0
-                self.keys_pressed.remove(Key.DOWN)
+                self.stop()
             # Turn
             elif not self.direction == Direction.DOWN:
                 self.direction = Direction.DOWN
@@ -104,8 +103,7 @@ class Player:
         if Key.LEFT in self.keys_pressed:
             # Brake
             if self.direction == Direction.RIGHT and self.dx == 1:
-                self.dx = 0
-                self.keys_pressed.remove(Key.LEFT)
+                self.stop()
             # Turn
             elif not self.direction == Direction.LEFT:
                 self.direction = Direction.LEFT
@@ -113,6 +111,12 @@ class Player:
             # Start driving
             elif self.direction == Direction.LEFT:
                 self.dx = -1
+
+    # Makes the player stop and remove all keys
+    def stop(self):
+        self.dx = 0
+        self.dy = 0
+        self.keys_pressed = set()
 
     # Private things
     # Player logic
