@@ -128,20 +128,20 @@ class Player:
 
 
 def is_driving(player):
-    return not player.get_dx() == 0 or not player.get_dy() == 0
+    return not math.isclose(player.get_dx(), 0.0) or not math.isclose(player.get_dy(), 0.0)
 
 def is_driving_up(player):
     return math.isclose(player.get_dy(), -1.0) and math.isclose(player.get_dx(), 0.0)
 
 def is_driving_right(player):
-    return player.get_dx() == 1 and player.get_dy() == 0
+    return math.isclose(player.get_dx(), 1.0) and math.isclose(player.get_dy(), 0.0)
 
 def is_driving_down(player):
-    return player.get_dy() == 1 and player.get_dx() == 0
+    return math.isclose(player.get_dy(), 1.0) and math.isclose(player.get_dx(), 0.0)
 
 def is_driving_left(player):
-    return player.get_dx() == -1 and player.get_dy() == 0
+    return math.isclose(player.get_dx(), -1.0) and math.isclose(player.get_dy(), 0.0)
 
 def is_stopped(player):
-    return player.get_dx() == 0 and player.get_dy() == 0
+    return math.isclose(player.get_dx(), 0.0) and math.isclose(player.get_dy(), 0.0)
 
