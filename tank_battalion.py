@@ -2,6 +2,8 @@
 # From https://pythonprogramming.net/pygame-python-3-part-1-intro
 import pygame
 
+from player import *
+
 pygame.init()
 
 display_width = 256
@@ -19,14 +21,6 @@ clock = pygame.time.Clock()
 crashed = False
 player_image = pygame.image.load('sprites/PlayerUp.png')
 background_image = pygame.image.load('sprites/Background.png')
-
-def draw_player(x,y):
-    game_display.blit(player_image, (x,y))
-
-x = (display_width  * 0.45)
-y = (display_height * 0.80)
-x_change = 0
-y_change = 0
 
 while not crashed:
 
@@ -57,7 +51,7 @@ while not crashed:
     x += x_change
     y += y_change
     game_display.blit(background_image, (0,0))
-    draw_player(x,y)
+    game_display.blit(player_image, (x,y))
 
     pygame.display.update()
     clock.tick(60)
