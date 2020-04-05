@@ -8,5 +8,5 @@ class TestGame(unittest.TestCase):
 
     def test_default_construction(self):
         game = Game()
-        self.assertEqual(0, game.player.get_dx())
+        self.assertEqual(0, game.get_player().get_dx())
 
