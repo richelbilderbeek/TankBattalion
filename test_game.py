@@ -31,5 +31,5 @@ class TestGame(unittest.TestCase):
         self.assertTrue(game.get_player().get_y() >= 0.0)
         for lp in range(game.get_height()):
             game.tick()
-        #self.assertTrue(game.get_player().get_y() >= 0.0)
+        self.assertTrue(game.get_player().get_y() >= 0.0)
 
