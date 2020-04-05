@@ -14,6 +14,10 @@ class Player:
 
     # Add a key to the set of keys that are active
     def add_key(self, key):
+        # Remove oppsitite key
+        if (key == Key.UP and Key.DOWN in self.keys_pressed):
+            self.keys_pressed.remove(Key.DOWN)
+
         self.keys_pressed.add(key)
 
     # Simple getters

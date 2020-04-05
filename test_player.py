@@ -28,11 +28,28 @@ class TestPlayer(unittest.TestCase):
         player = Player()
         self.assertEqual(0, len(player.get_keys_pressed()))
         
-    def test_add_key(self):
+    # A player can go down and left
+    def test_add_orthogonal_key(self):
         player = Player()
         self.assertEqual(0, len(player.get_keys_pressed()))
         player.add_key(Key.DOWN)
         self.assertTrue(Key.DOWN in player.get_keys_pressed())
+
+    # A player can go down and left
+    def test_add_opposite_key(self):
+        player = Player()
+        self.assertEqual(0, len(player.get_keys_pressed()))
+        player.add_key(Key.DOWN)
+        self.assertTrue(Key.DOWN in player.get_keys_pressed())
+        player.add_key(Key.UP)
+        self.assertFalse(Key.DOWN in player.get_keys_pressed())
+
+    def test_add_second_key(self):
+        player = Player()
+        player.add_key(Key.DOWN)
+        player.add_key(Key.LEFT)
+        self.assertTrue(Key.DOWN in player.get_keys_pressed())
+        self.assertTrue(Key.LEFT in player.get_keys_pressed())
 
     def test_turn_up(self):
         player = Player(0, 0, Direction.DOWN)
@@ -93,4 +110,5 @@ class TestPlayer(unittest.TestCase):
         self.assertEqual(0, player.get_dx())
         player.respond_to_keys()
         self.assertEqual(-1, player.get_dx())
+
 
