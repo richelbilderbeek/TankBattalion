@@ -9,11 +9,9 @@ class Game:
         self.player = player
         self.width = 256
 
-
     def add_key(self, key):
         self.player.add_key(key)
 
-    # Simple getters
     def get_height(self):
         return self.height
 
@@ -30,10 +28,18 @@ class Game:
     def get_width(self):
         return self.width
 
+    def remove_key(self, key):
+        self.player.remove_key(key)
 
     # Does the game want to quit?
     def set_quit(self, quit):
         self.quit = quit
+
+    # Process all events of the game
+    def tick(self):
+        self.player.respond_to_keys()
+        self.player.move()
+
 
     height = 192
     player = Player()
