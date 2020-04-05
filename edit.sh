@@ -1,2 +1,2 @@
 #!/bin/bash
-mousepad tank_battalion.py player.py
+mousepad $(ls *.py | sort)
