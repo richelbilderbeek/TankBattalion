@@ -49,3 +49,18 @@ class TestPlayer(unittest.TestCase):
         player.respond_to_keys()
         self.assertEqual(1, player.get_dy())
 
+    def test_turn_up(self):
+        player = Player(0, 0, Direction.DOWN)
+        player.add_key(Key.UP)
+        self.assertEqual(Direction.DOWN, player.get_direction())
+        player.respond_to_keys()
+        self.assertEqual(Direction.UP, player.get_direction())
+
+    def test_turn_and_go_up(self):
+        player = Player(0, 0, Direction.DOWN)
+        player.add_key(Key.UP)
+        player.respond_to_keys() # Only turn
+        self.assertEqual(0, player.get_dy())
+        player.respond_to_keys()
+        self.assertEqual(-1, player.get_dy())
+

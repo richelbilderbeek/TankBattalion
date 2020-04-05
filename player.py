@@ -44,6 +44,11 @@ class Player:
     # Will make the tank turn and change speed
     # The game logic will have to stop the tank from running into walls
     def respond_to_keys(self):
+        if Key.UP in self.keys_pressed:
+            if self.direction == Direction.DOWN:
+                self.direction = Direction.UP
+            elif self.direction == Direction.UP:
+                self.dy = -1
         if Key.DOWN in self.keys_pressed:
             if self.direction == Direction.UP:
                 self.direction = Direction.DOWN
