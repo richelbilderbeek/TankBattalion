@@ -9,9 +9,16 @@ class Game:
         self.player = player
         self.width = 256
 
+
+    def add_key(self, key):
+        self.player.add_key(key)
+
     # Simple getters
     def get_height(self):
         return self.height
+
+    def get_keys_pressed(self):
+        return self.player.get_keys_pressed()
 
     def get_player(self):
         return self.player
@@ -34,6 +41,4 @@ class Game:
     width = 256
 
 # Free functions
-def get_keys_pressed(game: Game):
-    return get_keys_pressed(game.get_player())
 

@@ -128,6 +128,9 @@ class Player:
 
 
 # Free functions
+def add_key(player: Player, key):
+    player.add_key(key)
+
 def get_keys_pressed(player: Player):
     return player.get_keys_pressed()
 

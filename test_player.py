@@ -36,6 +36,8 @@ class TestPlayer(unittest.TestCase):
         self.assertEqual(0, len(player.get_keys_pressed()))
         player.add_key(Key.DOWN)
         self.assertEqual(1, len(player.get_keys_pressed()))
+        add_key(player, Key.RIGHT) # Free function
+        self.assertEqual(2, len(get_keys_pressed(player)))
         
     def test_add_orthogonal_key(self):
         player = Player()
