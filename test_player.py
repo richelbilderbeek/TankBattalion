@@ -31,3 +31,10 @@ class TestPlayer(unittest.TestCase):
         player.add_key(Key.DOWN)
         self.assertTrue(Key.DOWN in player.get_keys_pressed())
 
+    def test_turn_down(self):
+        player = Player()
+        player.add_key(Key.DOWN)
+        self.assertEqual(Direction.UP, player.get_direction())
+        player.respond_to_keys()
+        self.assertEqual(Direction.DOWN, player.get_direction())
+

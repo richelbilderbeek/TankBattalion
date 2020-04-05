@@ -30,6 +30,13 @@ class Player:
     def get_y(self):
         return self.y
 
+    # Respond to the keys pressed
+    # Will make the tank turn and change speed
+    # The game logic will have to stop the tank from running into walls
+    def respond_to_keys(self):
+        if self.direction == Direction.UP and Key.DOWN in self.keys_pressed:
+            self.direction = Direction.DOWN
+
     # Private things
     # Player logic
     direction = Direction.UP
