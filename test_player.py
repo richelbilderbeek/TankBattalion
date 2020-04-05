@@ -134,6 +134,12 @@ class TestPlayer(unittest.TestCase):
         player.add_key(Key.UP)
         player.respond_to_keys()
         self.assertEqual(-1, player.get_dy())
+        self.assertTrue(is_driving(player))
+        self.assertFalse(is_stopped(player))
+        self.assertTrue(is_driving_up(player))
+        self.assertFalse(is_driving_right(player))
+        self.assertFalse(is_driving_down(player))
+        self.assertFalse(is_driving_left(player))
 
     def test_turn_and_go_right(self):
         player = Player()
@@ -143,6 +149,11 @@ class TestPlayer(unittest.TestCase):
         player.add_key(Key.RIGHT)
         player.respond_to_keys()
         self.assertEqual(1, player.get_dx())
+        self.assertTrue(is_driving(player))
+        self.assertFalse(is_driving_up(player))
+        self.assertTrue(is_driving_right(player))
+        self.assertFalse(is_driving_down(player))
+        self.assertFalse(is_driving_left(player))
 
     def test_turn_and_go_down(self):
         player = Player()
@@ -152,6 +163,10 @@ class TestPlayer(unittest.TestCase):
         player.add_key(Key.DOWN)
         player.respond_to_keys()
         self.assertEqual(1, player.get_dy())
+        self.assertFalse(is_driving_up(player))
+        self.assertFalse(is_driving_right(player))
+        self.assertTrue(is_driving_down(player))
+        self.assertFalse(is_driving_left(player))
 
     def test_turn_and_go_left(self):
         player = Player()
@@ -161,6 +176,10 @@ class TestPlayer(unittest.TestCase):
         player.add_key(Key.LEFT)
         player.respond_to_keys()
         self.assertEqual(-1, player.get_dx())
+        self.assertFalse(is_driving_up(player))
+        self.assertFalse(is_driving_right(player))
+        self.assertFalse(is_driving_down(player))
+        self.assertTrue(is_driving_left(player))
 
     def test_move_left(self):
         player = Player(direction = Direction.LEFT)
