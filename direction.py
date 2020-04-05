@@ -5,3 +5,4 @@ class Direction(Enum):
     RIGHT = auto()
     DOWN = auto()
     LEFT = auto()
+

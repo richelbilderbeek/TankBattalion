@@ -11,6 +11,7 @@ class Player:
         self.dx = 0
         self.dy = 0
         self.keys_pressed = set()
+        shell = None
         self.x = x
         self.y = y
 
